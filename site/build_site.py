@@ -73,8 +73,8 @@ BODY = f"""
 
   <div class="hero">
     <div>
-      <h1>ACS Pro on physical keys.</h1>
-      <p>Play, previous / next recording, bookmark, live / recordings, next camera, PTZ presets — and every camera or view you map in AXIS Camera Station. For the ACS Pro and ACS 5 Windows client.</p>
+      <h1>ACS 5 and ACS Pro on physical keys.</h1>
+      <p>Play, previous / next recording, bookmark, live / recordings, next camera, PTZ presets — and every camera or view you map in AXIS Camera Station. For the AXIS Camera Station 5 and AXIS Camera Station Pro Windows clients — same hotkeys, one plugin.</p>
       <div class="cta">
         <a class="btn" href="{DL}">{DL_ICON}Download plugin</a>
         <a class="btn ghost" href="{REPO}">Source on GitHub</a>
@@ -87,7 +87,7 @@ BODY = f"""
   <section id="hotkeys">
     <div class="eyebrow">Read this first</div>
     <h2>ACS runs on hotkeys you control.</h2>
-    <p class="lead">AXIS Camera Station is driven by keyboard hotkeys — <kbd>F2</kbd> opens the Hotkeys tab where every action gets <kbd>Ctrl</kbd> + a key or <kbd>F2</kbd>–<kbd>F12</kbd>. Axis documents only a few defaults, and "navigate to camera / view" has none. The plugin embraces that:</p>
+    <p class="lead">AXIS Camera Station — 5 and Pro alike — is driven by keyboard hotkeys — <kbd>F2</kbd> opens the Hotkeys tab where every action gets <kbd>Ctrl</kbd> + a key or <kbd>F2</kbd>–<kbd>F12</kbd>. Axis documents only a few defaults, and "navigate to camera / view" has none. The plugin embraces that:</p>
     <div class="grid3">
       <div class="card"><div class="num">✓ documented</div><h3>Sent as Axis defines them</h3><p>Zoom <kbd>Ctrl</kbd> <kbd>+</kbd> / <kbd>−</kbd>, Help <kbd>F1</kbd>, Hotkeys <kbd>F2</kbd>, Logs <kbd>F4</kbd>, Configuration <kbd>F5</kbd>, Auto focus <kbd>F10</kbd>, Exit full screen <kbd>Esc</kbd>.</p></div>
       <div class="card"><div class="num">suggested</div><h3>Mirror once in ACS, or edit the key</h3><p>Play/Pause <kbd>Ctrl</kbd> <kbd>Space</kbd>, Next recording <kbd>Ctrl</kbd> <kbd>L</kbd>, Bookmark <kbd>Ctrl</kbd> <kbd>B</kbd>… In ACS press F2, click the action's keyboard field, press the same combo. Or type your own combo into the key's Hotkey field.</p></div>

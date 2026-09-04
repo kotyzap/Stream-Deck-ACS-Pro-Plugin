@@ -1,6 +1,6 @@
 # Deck for AXIS Camera Station Pro & 5
 
-A Stream Deck plugin for the **AXIS Camera Station Pro** and **AXIS Camera Station 5** Windows client — playback, bookmarks, camera navigation, PTZ presets and any hotkey you map in ACS, on physical keys.
+A Stream Deck plugin for the **AXIS Camera Station 5** and **AXIS Camera Station Pro** Windows clients (same hotkeys, one plugin) — playback, bookmarks, camera navigation, PTZ presets and any hotkey you map in ACS, on physical keys.
 
 **[Website](https://kotyzap.github.io/Stream-Deck-ACS-Pro-Plugin/) · [Download plugin](dist/com.4xsdev.acs-pro.streamDeckPlugin)**
 
