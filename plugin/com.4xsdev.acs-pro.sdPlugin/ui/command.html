@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script></head>
+<body>
+<sdpi-item label="Command">
+  <sdpi-select setting="command" default="play">
+    <optgroup label="Recordings">
+      <option value="play">Play / pause — Ctrl+Space</option>
+      <option value="prev">Previous recording — Ctrl+J</option>
+      <option value="next">Next recording — Ctrl+L</option>
+      <option value="step-back">Frame step back — Ctrl+Left</option>
+      <option value="step-fwd">Frame step forward — Ctrl+Right</option>
+      <option value="bookmark">Add bookmark — Ctrl+B</option>
+      <option value="marker">Show / hide export marker — Ctrl+E</option>
+      <option value="live-rec">Switch live / recordings — Ctrl+R</option>
+    </optgroup>
+    <optgroup label="Navigation">
+      <option value="next-cam">Next camera or view — Ctrl+N</option>
+      <option value="prev-cam">Previous camera or view — Ctrl+Shift+N</option>
+      <option value="next-tab">Next tab — Ctrl+Tab</option>
+      <option value="prev-tab">Previous tab — Ctrl+Shift+Tab</option>
+      <option value="next-cell">Next cell in split view — Ctrl+]</option>
+      <option value="prev-cell">Previous cell in split view — Ctrl+[</option>
+      <option value="views">Open views — Ctrl+Shift+V</option>
+      <option value="fullscreen-exit">Exit full screen — Esc ✓</option>
+    </optgroup>
+    <optgroup label="PTZ">
+      <option value="preset-1">Go to preset 1 — Ctrl+1</option>
+      <option value="preset-2">Go to preset 2 — Ctrl+2</option>
+      <option value="preset-3">Go to preset 3 — Ctrl+3</option>
+      <option value="preset-4">Go to preset 4 — Ctrl+4</option>
+      <option value="zoom-in">Zoom in — Ctrl+Plus ✓</option>
+      <option value="zoom-out">Zoom out — Ctrl+Minus ✓</option>
+      <option value="focus-far">Focus farther — Ctrl+Shift+Plus</option>
+      <option value="focus-near">Focus nearer — Ctrl+Shift+Minus</option>
+      <option value="autofocus">Auto focus — F10 ✓</option>
+    </optgroup>
+    <optgroup label="System">
+      <option value="hotkeys">Open hotkeys — F2 ✓</option>
+      <option value="logs">Open logs — F4 ✓</option>
+      <option value="config">Open configuration — F5 ✓</option>
+      <option value="help">Help — F1 ✓</option>
+    </optgroup>
+  </sdpi-select>
+</sdpi-item>
+<sdpi-item label="Hotkey">
+  <sdpi-textfield setting="hotkey" placeholder="leave empty for the default shown above"></sdpi-textfield>
+</sdpi-item>
+<sdpi-item label="">
+  <small>✓ = documented by Axis. The others are suggestions: assign the same combo once in AXIS Camera Station (F2 → Hotkeys, click the keyboard field, press the combo), or type here whatever your ACS already uses. Format: <b>Ctrl+Shift+F5</b>, keys Ctrl / Alt / Shift, A–Z, 0–9, F1–F12, Space, Tab, Esc, Enter, arrows, Plus, Minus. The hotkey is sent to the front window — use the Activate ACS key first.</small>
+</sdpi-item>
+</body></html>

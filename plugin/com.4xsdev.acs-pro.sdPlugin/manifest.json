@@ -1,0 +1,104 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "Name": "Deck for AXIS Camera Station Pro & 5",
+  "Version": "1.0.0.0",
+  "Author": "Pavel Kotyza",
+  "Description": "AXIS Camera Station Pro and AXIS Camera Station 5 hotkeys on Stream Deck keys: play / pause, previous / next recording, frame step, bookmark, live / recordings, next camera, PTZ presets, zoom, focus, and any hotkey you map in ACS (go to camera, go to view). Ready-made profiles for Stream Deck, Mini and XL. Independent project, not affiliated with Axis Communications or Elgato. https://www.4xs.dev",
+  "UUID": "com.4xsdev.acs-pro",
+  "Icon": "imgs/plugin/marketplace",
+  "Category": "Deck for AXIS Camera Station Pro & 5",
+  "CategoryIcon": "imgs/plugin/category",
+  "CodePath": "bin/plugin.js",
+  "SDKVersion": 3,
+  "Software": {
+    "MinimumVersion": "6.9"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20"
+  },
+  "Profiles": [
+    {
+      "Name": "ACS Pro",
+      "DeviceType": 0,
+      "Readonly": false,
+      "AutoInstall": true
+    },
+    {
+      "Name": "ACS Pro Mini",
+      "DeviceType": 1,
+      "Readonly": false,
+      "AutoInstall": true
+    },
+    {
+      "Name": "ACS Pro XL",
+      "DeviceType": 2,
+      "Readonly": false,
+      "AutoInstall": true
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "ACS Command",
+      "UUID": "com.4xsdev.acs-pro.command",
+      "Icon": "imgs/actions/command/icon",
+      "Tooltip": "Sends one AXIS Camera Station hotkey to the front window: playback, bookmark, live / recordings, camera and tab navigation, PTZ presets, zoom, focus, hotkeys / logs / configuration. The combo is editable per key.",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/command.html",
+      "SupportedInMultiActions": true,
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/command/key",
+          "TitleAlignment": "middle",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "Name": "ACS Hotkey",
+      "UUID": "com.4xsdev.acs-pro.hotkey",
+      "Icon": "imgs/actions/hotkey/icon",
+      "Tooltip": "Sends any hotkey you mapped in AXIS Camera Station (F2 → Hotkeys), with your own title — go to camera, go to view, sequences.",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/hotkey.html",
+      "SupportedInMultiActions": true,
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/hotkey/key",
+          "TitleAlignment": "middle",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "Name": "Activate ACS",
+      "UUID": "com.4xsdev.acs-pro.activate",
+      "Icon": "imgs/actions/activate/icon",
+      "Tooltip": "Brings the AXIS Camera Station client window to the front so the next hotkey lands in it.",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/activate.html",
+      "SupportedInMultiActions": true,
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "imgs/actions/activate/key",
+          "TitleAlignment": "middle",
+          "ShowTitle": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script></head>
+<body>
+<sdpi-item label="Title">
+  <sdpi-textfield setting="title" placeholder="Lobby"></sdpi-textfield>
+</sdpi-item>
+<sdpi-item label="Hotkey">
+  <sdpi-textfield setting="hotkey" placeholder="Ctrl+5"></sdpi-textfield>
+</sdpi-item>
+<sdpi-item label="Colour">
+  <sdpi-select setting="color" default="camera">
+    <option value="camera">Blue — camera / view</option>
+    <option value="recording">Amber — recordings</option>
+    <option value="ptz">Green — PTZ</option>
+    <option value="other">Grey — other</option>
+  </sdpi-select>
+</sdpi-item>
+<sdpi-item label="">
+  <small>For actions AXIS Camera Station has no default for — <b>Navigate to camera</b>, <b>Navigate to view</b>, sequences: in ACS press F2, find the camera or view, click its keyboard field and press a combo (Ctrl + key, or F2–F12). Enter the same combo here. Format: <b>Ctrl+Shift+F5</b>.</small>
+</sdpi-item>
+</body></html>
