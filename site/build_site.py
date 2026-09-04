@@ -74,12 +74,12 @@ BODY = f"""
   <div class="hero">
     <div>
       <h1>ACS 5 and ACS Pro on physical keys.</h1>
-      <p>Play, previous / next recording, bookmark, live / recordings, next camera, PTZ presets — and every camera or view you map in AXIS Camera Station. For the AXIS Camera Station 5 and AXIS Camera Station Pro Windows clients — same hotkeys, one plugin.</p>
+      <p>Play, previous / next recording, bookmark, live / recordings, next camera, PTZ presets — and every camera or view you map in AXIS Camera Station. For the AXIS Camera Station 5 and AXIS Camera Station Pro client — same hotkeys, one plugin. Windows natively; on a Mac through Parallels, VMware or Remote Desktop.</p>
       <div class="cta">
         <a class="btn" href="{DL}">{DL_ICON}Download plugin</a>
         <a class="btn ghost" href="{REPO}">Source on GitHub</a>
       </div>
-      <p class="meta" style="margin-top:16px">Windows 10+ · Stream Deck 6.9+ · one-click install with a ready profile for Mini, MK.2 and XL. Free and open source (MIT). Also on the Elgato Marketplace.</p>
+      <p class="meta" style="margin-top:16px">Windows 10+ · macOS 12+ · Stream Deck 6.9+ · one-click install with a ready profile for Mini, MK.2 and XL. Free and open source (MIT). Also on the Elgato Marketplace.</p>
     </div>
     <img src="img/hero-decks.png" width="1600" height="1434" alt="The three bundled profiles on Stream Deck XL, MK.2 and Mini: playback, navigation, PTZ presets and camera hotkeys for ACS Pro">
   </div>
@@ -107,7 +107,7 @@ BODY = f"""
       <tr><td>ACS Command · PTZ</td><td>Go to preset 1–4 · zoom in / out · focus farther / nearer · auto focus.</td></tr>
       <tr><td>ACS Command · System</td><td>Hotkeys <kbd>F2</kbd> · Logs <kbd>F4</kbd> · Configuration <kbd>F5</kbd> · Help <kbd>F1</kbd>.</td></tr>
       <tr><td>ACS Hotkey</td><td>Any combo, your title, a colour — for everything you map yourself in ACS.</td></tr>
-      <tr><td>Activate ACS</td><td>Brings the ACS client window to the front (window title match) so the next hotkey lands in it. Chain it first in a Multi Action.</td></tr>
+      <tr><td>Activate ACS</td><td>Brings ACS to the front so the next hotkey lands in it — the client window on Windows, the hosting app (Parallels, VMware, Windows App) on a Mac. Chain it first in a Multi Action.</td></tr>
     </table>
     <p class="meta" style="margin-top:20px">Combo format <code>Ctrl+Shift+F5</code>: Ctrl / Alt / Shift; A–Z, 0–9, F1–F12, Space, Tab, Esc, Enter, arrows, Plus, Minus and more.</p>
   </section>
@@ -127,7 +127,7 @@ BODY = f"""
       <div class="card"><div class="num">2</div><h3>Mirror the combos in ACS</h3><p>In the ACS client press <kbd>F2</kbd>. For each key you use, click the action's keyboard field and press the combo shown on the key — or edit the key to match what ACS already has.</p></div>
       <div class="card"><div class="num">3</div><h3>Press Activate, then play</h3><p>Hotkeys go to the front window. Press <strong>Activate ACS</strong> (or click into ACS) and the rest of the deck is live.</p></div>
     </div>
-    <p class="meta" style="margin-top:24px">Limits: Windows only (the ACS client is a Windows application); the plugin cannot tell whether ACS is focused. Written to Axis's documented hotkey rules but not yet tested on a Windows machine with ACS — reports welcome via <a href="{REPO}/issues">GitHub issues</a>.</p>
+    <p class="meta" style="margin-top:24px">Limits: the ACS client is a Windows application — on a Mac it runs in Parallels / VMware / Remote Desktop and the plugin sends the combos there (⌃ arrives as Ctrl); the plugin cannot tell whether ACS is focused. Written to Axis's documented hotkey rules but not yet tested against a running ACS client — reports welcome via <a href="{REPO}/issues">GitHub issues</a>.</p>
   </section>
 
   <footer>

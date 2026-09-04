@@ -1,7 +1,8 @@
 // Deck for AXIS Camera Station Pro & 5 — Stream Deck plugin
 // Pavel Kotyza <kotyza@gmail.com> — https://www.4xs.dev
 //
-// The ACS Pro / ACS 5 client is a Windows application driven by keyboard hotkeys (F2 → Hotkeys tab).
+// The ACS Pro / ACS 5 client is a Windows application driven by keyboard hotkeys (F2 → Hotkeys tab); on a Mac it runs in
+// Parallels / VMware / Remote Desktop, so the plugin emits the same combos through System Events there.
 // A keyboard hotkey there is Ctrl + key or F2–F12; every action can be re-mapped by the user. Only a few
 // combos are documented by Axis; the rest below are suggestions the user mirrors in ACS once, or overrides per key.
 import streamDeck, { SingletonAction } from "@elgato/streamdeck";
@@ -144,17 +145,43 @@ function run(cmd, args) {
 }
 const ps = (script) => run("powershell", ["-NoProfile", "-NonInteractive", "-WindowStyle", "Hidden", "-Command", script]);
 
-async function sendHotkey(hotkey) {
-    if (platform() !== "win32") throw new Error("AXIS Camera Station Pro / 5 client runs on Windows only");
-    const keys = toSendKeys(hotkey).replace(/'/g, "''");
-    await ps(`Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('${keys}')`);
+// macOS: System Events. Mac users run the ACS client in Parallels / VMware / Remote Desktop, where ⌃ arrives as Ctrl.
+const MAC_CODE = { f1: 122, f2: 120, f3: 99, f4: 118, f5: 96, f6: 97, f7: 98, f8: 100, f9: 101, f10: 109, f11: 103, f12: 111,
+    left: 123, right: 124, down: 125, up: 126, esc: 53, escape: 53, tab: 48, enter: 36, return: 36, space: 49, backspace: 51,
+    delete: 117, del: 117, home: 115, end: 119, pageup: 116, pagedown: 121, insert: 114 };
+export function toAppleScript(hotkey) {
+    const parts = String(hotkey).trim().split("+").map((p) => p.trim()).filter(Boolean);
+    if (/\+\s*$/.test(String(hotkey).trim())) parts.push("+");
+    if (!parts.length) throw new Error("empty hotkey");
+    const key = parts.pop();
+    const mods = parts.map((m) => ({ ctrl: "control", control: "control", alt: "option", shift: "shift" })[m.toLowerCase()] ?? (() => { throw new Error(`unknown modifier "${m}"`); })());
+    const using = mods.length ? ` using {${mods.map((m) => m + " down").join(", ")}}` : "";
+    const l = key.toLowerCase();
+    if (MAC_CODE[l] !== undefined) return `key code ${MAC_CODE[l]}${using}`;
+    const ch = { plus: "+", minus: "-" }[l] ?? (key.length === 1 ? l : null);
+    if (ch === null) throw new Error(`unknown key "${key}"`);
+    return `keystroke "${ch.replace(/(["\\])/g, "\\$1")}"${using}`;
 }
 
-async function activateWindow(titlePart) {
-    if (platform() !== "win32") throw new Error("Windows only");
-    const t = String(titlePart).replace(/'/g, "''");
-    // AppActivate matches a window whose title starts with or ends with the string; fall back to the ACS process' main window.
-    await ps(`$ok = (New-Object -ComObject WScript.Shell).AppActivate('${t}'); if (-not $ok) { $p = Get-Process | Where-Object { $_.MainWindowTitle -like '*${t}*' } | Select-Object -First 1; if ($p) { (New-Object -ComObject WScript.Shell).AppActivate($p.Id) | Out-Null } else { exit 2 } }`);
+async function sendHotkey(hotkey) {
+    if (platform() === "win32") {
+        const keys = toSendKeys(hotkey).replace(/'/g, "''");
+        await ps(`Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('${keys}')`);
+    } else if (platform() === "darwin") {
+        await run("osascript", ["-e", `tell application "System Events" to ${toAppleScript(hotkey)}`]);
+    } else throw new Error(`unsupported platform ${platform()}`);
+}
+
+const DEFAULT_TARGET = { win32: "AXIS Camera Station", darwin: "Parallels Desktop" };
+async function activateWindow(target) {
+    if (platform() === "win32") {
+        const t = String(target).replace(/'/g, "''");
+        // AppActivate matches a window whose title starts with or ends with the string; fall back to the process' main window.
+        await ps(`$ok = (New-Object -ComObject WScript.Shell).AppActivate('${t}'); if (-not $ok) { $p = Get-Process | Where-Object { $_.MainWindowTitle -like '*${t}*' } | Select-Object -First 1; if ($p) { (New-Object -ComObject WScript.Shell).AppActivate($p.Id) | Out-Null } else { exit 2 } }`);
+    } else if (platform() === "darwin") {
+        // the app hosting ACS: Parallels Desktop, VMware Fusion, Windows App (Remote Desktop), or a browser for the web client
+        await run("osascript", ["-e", `tell application "${String(target).replace(/(["\\])/g, "\\$1")}" to activate`]);
+    } else throw new Error(`unsupported platform ${platform()}`);
 }
 
 // ---------------------------------------------------------------- actions
@@ -195,8 +222,8 @@ class Activate extends SingletonAction {
     manifestId = `${PLUGIN}.activate`;
     onWillAppear(ev) { ev.action.setImage(activateImage()); }
     async onKeyDown(ev) {
-        const title = (ev.payload.settings.title ?? "").trim() || "AXIS Camera Station";
-        try { await activateWindow(title); } catch (e) { fail(ev, e); }
+        const target = (ev.payload.settings.title ?? "").trim() || DEFAULT_TARGET[platform()] || "AXIS Camera Station";
+        try { await activateWindow(target); } catch (e) { fail(ev, e); }
     }
 }
 

@@ -84,7 +84,7 @@ def marketplace(decks, sheet):
     d.text((90, 250), "Deck for", font=font(64, True), fill=white)
     d.text((90, 330), "AXIS Camera", font=font(72, True), fill=yellow)
     d.text((90, 415), "Station Pro & 5", font=font(72, True), fill=yellow)
-    d.text((90, 540), "Playback, bookmarks, camera navigation, PTZ presets\nand any ACS hotkey — on physical keys. Windows.", font=font(30), fill=grey, spacing=10)
+    d.text((90, 540), "Playback, bookmarks, camera navigation, PTZ presets\nand any ACS hotkey — on physical keys. Windows · Mac (Parallels/RDP).", font=font(30), fill=grey, spacing=10)
     d.text((90, 660), "Stream Deck · Mini · XL profiles included", font=font(26), fill=grey)
     h = fit(hero(decks), (1000, 860)); t.alpha_composite(h, (W - h.width - 40, (H - h.height) // 2))
     t.convert("RGB").save(MKT / "thumbnail.png")
