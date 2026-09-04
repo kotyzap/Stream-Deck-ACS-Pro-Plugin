@@ -2,13 +2,15 @@
 
 A Stream Deck plugin for the **AXIS Camera Station 5** and **AXIS Camera Station Pro** client (same hotkeys, one plugin) — playback, bookmarks, camera navigation, PTZ presets and any hotkey you map in ACS, on physical keys. Windows natively; on a Mac through Parallels, VMware Fusion or Microsoft Remote Desktop.
 
-**[Website](https://kotyzap.github.io/Stream-Deck-ACS-Pro-Plugin/) · [Download plugin](dist/com.4xsdev.acs-pro.streamDeckPlugin)**
+**[Website](https://kotyzap.github.io/Stream-Deck-ACS-Pro-Plugin/) · [Download plugin](dist/com.4xsdev.acs-pro-kofi.streamDeckPlugin)**
+
+Two builds of the same plugin (same UUID, either updates the other): the GitHub download above adds a **Buy me a Ko-fi** key; the Elgato Marketplace build (`dist/com.4xsdev.acs-pro.streamDeckPlugin`) leaves it out, as Marketplace guidelines forbid sponsor links inside plugins.
 
 ![Default profile](docs/img/deck.png)
 
 ## Install
 
-Download [`com.4xsdev.acs-pro.streamDeckPlugin`](dist/com.4xsdev.acs-pro.streamDeckPlugin) (or install from the Elgato Marketplace) and double-click it. Stream Deck adds the **Deck for AXIS Camera Station Pro & 5** action group and a ready-made profile for your device — **ACS Pro** (15 keys), **ACS Pro Mini** (3×2) or **ACS Pro XL** (8×4).
+Download [`com.4xsdev.acs-pro-kofi.streamDeckPlugin`](dist/com.4xsdev.acs-pro-kofi.streamDeckPlugin) (or install from the Elgato Marketplace) and double-click it. Stream Deck adds the **Deck for AXIS Camera Station Pro & 5** action group and a ready-made profile for your device — **ACS Pro** (15 keys), **ACS Pro Mini** (3×2) or **ACS Pro XL** (8×4).
 
 Requirements: Stream Deck software 6.9+, Windows 10+ or macOS 12+, and the AXIS Camera Station 5 / Pro client — on a Mac inside Parallels, VMware Fusion or Microsoft Remote Desktop (the client itself is a Windows application). On macOS the Stream Deck app needs Accessibility permission to send keystrokes (it already has it if you use Elgato's Hotkey action).
 
@@ -68,4 +70,4 @@ npx @elgato/cli pack plugin/com.4xsdev.acs-pro.sdPlugin -o dist
 
 ## License
 
-MIT — Pavel Kotyza · [4xs.dev](https://www.4xs.dev). Independent project; not affiliated with Axis Communications or Elgato. AXIS is a trademark of Axis AB.
+MIT — Pavel Kotyza · [4xs.dev](https://www.4xs.dev). Free and open source; if it saves you clicks, [buy me a Ko-fi](https://ko-fi.com/K3K6RR4LY). Independent project; not affiliated with Axis Communications or Elgato. AXIS is a trademark of Axis AB.

@@ -9330,9 +9330,16 @@ class Activate extends SingletonAction {
     }
 }
 
+/** Ko-fi — GitHub build only (Marketplace forbids sponsor links inside plugins; plugin/package.sh --kofi adds it). */
+class Kofi extends SingletonAction {
+    manifestId = `${PLUGIN}.kofi`;
+    onKeyDown() { streamDeck.system.openUrl("https://ko-fi.com/K3K6RR4LY"); }
+}
+
 streamDeck.actions.registerAction(new Command());
 streamDeck.actions.registerAction(new Hotkey());
 streamDeck.actions.registerAction(new Activate());
+streamDeck.actions.registerAction(new Kofi());
 streamDeck.connect();
 
 export { CMD, GLYPH, activateImage, hotkeyImage, keyImage, toAppleScript, toSendKeys };
