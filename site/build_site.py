@@ -141,7 +141,7 @@ BODY = f"""
     <p class="lead">Physical keys for the tools you already use. All free and open source.</p>
     <div class="grid3">
       <a class="card cardlink" href="https://kotyzap.github.io/Stream-Deck-Claude-Plugin/"><h3>Deck for Claude ↗</h3><p>Answer permission prompts, replies, shortcuts & status for the Claude desktop app</p></a>
-      <a class="card cardlink" href="https://github.com/kotyzap/Stream-Deck-Axis-Cam-CamStreamer-Plugin"><h3>Camera Deck for Axis &amp; CamStreamer ↗</h3><p>PTZ, presets, overlays and CamStreamer/CamSwitcher control for Axis cameras</p></a>
+      <a class="card cardlink" href="https://kotyzap.github.io/Stream-Deck-Axis-Cam-CamStreamer-Plugin/"><h3>Camera Deck for Axis &amp; CamStreamer ↗</h3><p>PTZ, presets, overlays and CamStreamer/CamSwitcher control for Axis cameras</p></a>
       <a class="card cardlink" href="https://kotyzap.github.io/Stream-Deck-ACS-Edge-Plugin/"><h3>Deck for AXIS Camera Station Edge ↗</h3><p>Recording playback, PTZ and view controls for ACS Edge</p></a>
       <a class="card cardlink" href="https://kotyzap.github.io/Stream-Deck-Genetec-Plugin/"><h3>Deck for Genetec Security Desk ↗</h3><p>Playback, alarms, tiles, PTZ, doors and any camera by logical ID for Security Desk</p></a>
     </div>
